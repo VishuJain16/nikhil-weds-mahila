@@ -1,0 +1,6 @@
+import { wedding } from '@/content/wedding';
+import { assets } from '@/content/assets';
+import { Button } from '@/components/ui/button';
+import { Phone, MessageCircle } from 'lucide-react';
+import { Reveal } from './Reveal';
+export function Rsvp(){return <section className="rsvp-section textured-section"><img src={assets.rose} alt="" className="section-texture"/><Reveal><p className="eyebrow">YOUR PRESENCE MEANS THE WORLD TO US</p><h2 className="section-heading">Please RSVP</h2><p className="assistance-copy">For any assistance or queries, please contact:</p></Reveal><div className="contacts">{wedding.contacts.map(c=><Reveal key={c.name}><div className="contact"><p>{c.name}</p>{c.phone&&<><a href={`tel:+91${c.phone}`} className="contact-number">{c.phone}</a><Button asChild size="icon" variant="ghost"><a href={`tel:+91${c.phone}`} aria-label={`Call ${c.name}`} title={`Call ${c.name}`}><Phone/></a></Button></>}</div></Reveal>)}</div>{false&&<Reveal><Button asChild variant="outline" className="wedding-button"><a href={`https://wa.me/${wedding.rsvp.whatsappNumber}?text=${encodeURIComponent(wedding.rsvp.message)}`} target="_blank" rel="noreferrer"><MessageCircle/>RSVP ON WHATSAPP</a></Button></Reveal>}</section>;}
